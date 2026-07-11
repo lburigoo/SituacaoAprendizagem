@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot - EpiApplication",
+            "request": "launch",
+            "mainClass": "com.empresa.epi.EpiApplication",
+            "projectName": "epi",
+            "vmArgs": "--enable-native-access=ALL-UNNAMED",
+            "env": {
+                "JAVA_HOME": "C:\\Program Files\\Java\\jdk-25.0.2"
+            }
+        }
+    ]
+}

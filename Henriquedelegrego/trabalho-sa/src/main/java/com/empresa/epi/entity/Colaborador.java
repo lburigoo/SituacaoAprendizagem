@@ -1,7 +1,12 @@
 package com.empresa.epi.entity;
 
 // imports necessarios para o JPA funcionar
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity // fala que essa classe é uma tabela do banco
@@ -31,7 +36,7 @@ public class Colaborador {
     private String telefone;
 
     @Column(nullable = false)
-    private Boolean ativo = true; // começa como ativo
+    private Boolean ativo = true; 
 
     // construtor vazio pro JPA
     public Colaborador() {}

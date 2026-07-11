@@ -1,0 +1,23 @@
+{
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Program Files\\Java\\jdk-25.0.2",
+            "default": true
+        }
+    ],
+    "java.home": "C:\\Program Files\\Java\\jdk-25.0.2",
+    "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk-25.0.2",
+    "java.compile.nullAnalysis.mode": "disabled",
+    "maven.executable.path": "C:\\Users\\lucas\\Downloads\\Henriquedelegrego\\trabalho-sa\\mvnw.cmd",
+    "maven.terminal.useJavaHome": true,
+    "java.configuration.maven.userSettings": "",
+    "java.import.gradle.enabled": false,
+    "java.import.maven.enabled": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}
