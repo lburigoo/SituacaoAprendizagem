@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPIs - Sistema EPIs</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Gerenciamento de <span>EPIs</span></h1>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <div class="container">
+            <a href="/">Início</a>
+            <a href="/pages/colaboradores.html">Colaboradores</a>
+            <a href="/pages/epis.html" class="active">EPIs</a>
+            <a href="/pages/emprestimos.html">Empréstimos</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="page-title">
+            <h2>EPIs - Equipamentos de Proteção Individual</h2>
+            <button class="btn btn-primary" onclick="abrirModal()">+ Novo EPI</button>
+        </div>
+
+        <div id="mensagem"></div>
+
+        <div class="search-bar">
+            <input type="text" id="campoBusca" placeholder="Buscar por nome..." onkeyup="buscarEpis()">
+            <button class="btn btn-primary" onclick="buscarEpis()">Pesquisar</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Certificado CA</th>
+                        <th>Fabricante</th>
+                        <th>Estoque</th>
+                        <th>Validade</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaEpis">
+                    <tr><td colspan="8" class="loading">Carregando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitulo">Novo EPI</h3>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+
+            <form id="formEpi">
+                <input type="hidden" id="epiId">
+
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" required placeholder="Nome do EPI">
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" placeholder="Descrição do equipamento"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="certificadoCA">Certificado CA</label>
+                    <input type="text" id="certificadoCA" placeholder="Número do certificado">
+                </div>
+
+                <div class="form-group">
+                    <label for="fabricante">Fabricante</label>
+                    <input type="text" id="fabricante" placeholder="Nome do fabricante">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidadeEstoque">Quantidade em Estoque *</label>
+                    <input type="number" id="quantidadeEstoque" min="0" required placeholder="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="dataValidade">Data de Validade</label>
+                    <input type="date" id="dataValidade">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="ativo" checked> Ativo
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-secondary" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Sistema de Gerenciamento de EPIs &copy; 2026</p>
+    </footer>
+
+    <script src="/js/epis.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+com\empresa\epi\EpiApplication.class
+com\empresa\epi\config\CorsConfig$1.class
+com\empresa\epi\entity\Emprestimo.class
+com\empresa\epi\controller\ColaboradorController.class
+com\empresa\epi\repository\ColaboradorRepository.class
+com\empresa\epi\service\EpiService.class
+com\empresa\epi\service\ColaboradorService.class
+com\empresa\epi\config\CorsConfig.class
+com\empresa\epi\service\EmprestimoService.class
+com\empresa\epi\entity\Epi.class
+com\empresa\epi\repository\EmprestimoRepository.class
+com\empresa\epi\repository\EpiRepository.class
+com\empresa\epi\entity\Emprestimo$StatusEmprestimo.class
+com\empresa\epi\controller\EmprestimoController.class
+com\empresa\epi\controller\EpiController.class
+com\empresa\epi\entity\Colaborador.class
