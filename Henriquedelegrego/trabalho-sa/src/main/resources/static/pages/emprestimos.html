@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimos - Sistema EPIs</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Gerenciamento de <span>EPIs</span></h1>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <div class="container">
+            <a href="/">Início</a>
+            <a href="/pages/colaboradores.html">Colaboradores</a>
+            <a href="/pages/epis.html">EPIs</a>
+            <a href="/pages/emprestimos.html" class="active">Empréstimos</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="page-title">
+            <h2>Empréstimos de EPIs</h2>
+            <button class="btn btn-primary" onclick="abrirModal()">+ Novo Empréstimo</button>
+        </div>
+
+        <div id="mensagem"></div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Colaborador</th>
+                        <th>EPI</th>
+                        <th>Data Retirada</th>
+                        <th>Prev. Devolução</th>
+                        <th>Data Devolução</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaEmprestimos">
+                    <tr><td colspan="8" class="loading">Carregando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitulo">Novo Empréstimo</h3>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+
+            <form id="formEmprestimo">
+                <input type="hidden" id="emprestimoId">
+
+                <div class="form-group">
+                    <label for="colaborador">Colaborador *</label>
+                    <select id="colaborador" required>
+                        <option value="">Selecione...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="epi">EPI *</label>
+                    <select id="epi" required>
+                        <option value="">Selecione...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dataRetirada">Data de Retirada *</label>
+                    <input type="date" id="dataRetirada" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dataPrevistaDevolucao">Data Prevista de Devolução *</label>
+                    <input type="date" id="dataPrevistaDevolucao" required>
+                </div>
+
+                <div class="form-group" id="grupoDataDevolucao" style="display:none;">
+                    <label for="dataDevolucao">Data de Devolução</label>
+                    <input type="date" id="dataDevolucao">
+                </div>
+
+                <div class="form-group" id="grupoStatus" style="display:none;">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="ATIVO">Ativo</option>
+                        <option value="DEVOLVIDO">Devolvido</option>
+                        <option value="ATRASADO">Atrasado</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-secondary" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Sistema de Gerenciamento de EPIs &copy; 2026</p>
+    </footer>
+
+    <script src="/js/emprestimos.js"></script>
+</body>
+</html>
