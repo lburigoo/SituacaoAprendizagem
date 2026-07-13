@@ -36,6 +36,12 @@ public class EmprestimoController {
         }
     }
 
+    // GET - buscar por termo (nome do colaborador ou EPI)
+    @GetMapping("/buscar")
+    public List<Emprestimo> buscar(@RequestParam String q) {
+        return emprestimoService.buscar(q);
+    }
+
     // GET - buscar por colaborador
     @GetMapping("/colaborador/{colaboradorId}")
     public List<Emprestimo> buscarPorColaborador(@PathVariable Long colaboradorId) {

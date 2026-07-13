@@ -31,6 +31,58 @@ function statusBadge(status) {
     return status;
 }
 
+// funcao de buscar emprestimos por nome
+async function buscarEmprestimos() {
+    var termo = document.getElementById('campoBusca').value.trim();
+
+    if (!termo) {
+        carregarEmprestimos();
+        return;
+    }
+
+    try {
+        var response = await fetch(API_URL + '/buscar?q=' + encodeURIComponent(termo));
+        var data = await response.json();
+
+        var tbody = document.getElementById('tabelaEmprestimos');
+
+        if (data.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#999;">Nenhum empréstimo encontrado</td></tr>';
+            return;
+        }
+
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+            var emp = data[i];
+
+            var nomeColaborador = emp.colaborador ? emp.colaborador.nome : '-';
+            var nomeEpi = emp.epi ? emp.epi.nome : '-';
+
+            html += '<tr>';
+            html += '<td>' + emp.id + '</td>';
+            html += '<td>' + nomeColaborador + '</td>';
+            html += '<td>' + nomeEpi + '</td>';
+            html += '<td>' + formatarData(emp.dataRetirada) + '</td>';
+            html += '<td>' + formatarData(emp.dataPrevistaDevolucao) + '</td>';
+            html += '<td>' + formatarData(emp.dataDevolucao) + '</td>';
+            html += '<td>' + statusBadge(emp.status) + '</td>';
+            html += '<td>';
+
+            if (emp.status === 'ATIVO') {
+                html += '<button class="btn btn-success btn-sm" onclick="devolver(' + emp.id + ')">Devolver</button> ';
+            }
+            html += '<button class="btn btn-warning btn-sm" onclick="editar(' + emp.id + ')">Editar</button> ';
+            html += '<button class="btn btn-danger btn-sm" onclick="excluir(' + emp.id + ')">Excluir</button>';
+            html += '</td>';
+            html += '</tr>';
+        }
+        tbody.innerHTML = html;
+
+    } catch (error) {
+        mostrarMensagem('Erro ao buscar empréstimos', 'error');
+    }
+}
+
 // carrega a lista de emprestimos
 async function carregarEmprestimos() {
     try {

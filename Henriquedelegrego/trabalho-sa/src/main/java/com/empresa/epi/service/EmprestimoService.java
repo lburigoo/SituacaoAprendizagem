@@ -34,6 +34,11 @@ public class EmprestimoService {
         return emprestimoRepository.findById(id);
     }
 
+    // busca emprestimos por termo (nome do colaborador ou EPI)
+    public List<Emprestimo> buscar(String termo) {
+        return emprestimoRepository.buscarPorTermo(termo);
+    }
+
     // busca emprestimos de um colaborador especifico
     public List<Emprestimo> buscarPorColaborador(Long colaboradorId) {
         return emprestimoRepository.findByColaboradorId(colaboradorId);
