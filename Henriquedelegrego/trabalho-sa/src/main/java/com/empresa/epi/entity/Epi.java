@@ -32,6 +32,9 @@ public class Epi {
     @Column(length = 100)
     private String fabricante;
 
+    @Column(length = 60)
+    private String categoria; // ex: Capacete, Luva, Oculos, etc
+
     @Min(value = 0, message = "Quantidade não pode ser negativa") // nao pode ter estoque negativo
     @Column(nullable = false)
     private Integer quantidadeEstoque = 0;
@@ -60,6 +63,9 @@ public class Epi {
 
     public String getFabricante() { return fabricante; }
     public void setFabricante(String fabricante) { this.fabricante = fabricante; }
+
+    public String getCategoria() { return categoria; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
 
     public Integer getQuantidadeEstoque() { return quantidadeEstoque; }
     public void setQuantidadeEstoque(Integer quantidadeEstoque) { this.quantidadeEstoque = quantidadeEstoque; }

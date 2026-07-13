@@ -48,6 +48,7 @@ public class EpiService {
         epi.setDescricao(dadosAtualizados.getDescricao());
         epi.setCertificadoCA(dadosAtualizados.getCertificadoCA());
         epi.setFabricante(dadosAtualizados.getFabricante());
+        epi.setCategoria(dadosAtualizados.getCategoria());
         epi.setQuantidadeEstoque(dadosAtualizados.getQuantidadeEstoque());
         epi.setDataValidade(dadosAtualizados.getDataValidade());
         epi.setAtivo(dadosAtualizados.getAtivo());

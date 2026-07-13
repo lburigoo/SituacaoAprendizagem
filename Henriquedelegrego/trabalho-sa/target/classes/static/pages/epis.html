@@ -43,6 +43,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th>Categoria</th>
                         <th>Certificado CA</th>
                         <th>Fabricante</th>
                         <th>Estoque</th>
@@ -52,7 +53,7 @@
                     </tr>
                 </thead>
                 <tbody id="tabelaEpis">
-                    <tr><td colspan="8" class="loading">Carregando...</td></tr>
+                    <tr><td colspan="9" class="loading">Carregando...</td></tr>
                 </tbody>
             </table>
         </div>
@@ -73,6 +74,21 @@
                 <div class="form-group">
                     <label for="nome">Nome *</label>
                     <input type="text" id="nome" required placeholder="Nome do EPI">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria">
+                        <option value="">Selecione...</option>
+                        <option>Capacete</option>
+                        <option>Luva</option>
+                        <option>Óculos</option>
+                        <option>Máscara</option>
+                        <option>Protetor Auricular</option>
+                        <option>Cinto de Segurança</option>
+                        <option>Botina</option>
+                        <option>Outro</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

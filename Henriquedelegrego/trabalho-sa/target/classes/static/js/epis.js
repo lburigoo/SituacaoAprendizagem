@@ -26,7 +26,7 @@ async function carregarEpis() {
         var tbody = document.getElementById('tabelaEpis');
 
         if (data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#999;">Nenhum EPI cadastrado</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#999;">Nenhum EPI cadastrado</td></tr>';
             return;
         }
 
@@ -36,6 +36,7 @@ async function carregarEpis() {
             html += '<tr>';
             html += '<td>' + epi.id + '</td>';
             html += '<td>' + epi.nome + '</td>';
+            html += '<td>' + (epi.categoria || '-') + '</td>';
             html += '<td>' + (epi.certificadoCA || '-') + '</td>';
             html += '<td>' + (epi.fabricante || '-') + '</td>';
             html += '<td><strong>' + epi.quantidadeEstoque + '</strong></td>';
@@ -71,7 +72,7 @@ async function buscarEpis() {
         var tbody = document.getElementById('tabelaEpis');
 
         if (data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#999;">Nenhum EPI encontrado</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#999;">Nenhum EPI encontrado</td></tr>';
             return;
         }
 
@@ -81,6 +82,7 @@ async function buscarEpis() {
             html += '<tr>';
             html += '<td>' + epi.id + '</td>';
             html += '<td>' + epi.nome + '</td>';
+            html += '<td>' + (epi.categoria || '-') + '</td>';
             html += '<td>' + (epi.certificadoCA || '-') + '</td>';
             html += '<td>' + (epi.fabricante || '-') + '</td>';
             html += '<td><strong>' + epi.quantidadeEstoque + '</strong></td>';
@@ -122,6 +124,7 @@ async function editar(id) {
         document.getElementById('nome').value = epi.nome;
         document.getElementById('descricao').value = epi.descricao || '';
         document.getElementById('certificadoCA').value = epi.certificadoCA || '';
+        document.getElementById('categoria').value = epi.categoria || '';
         document.getElementById('fabricante').value = epi.fabricante || '';
         document.getElementById('quantidadeEstoque').value = epi.quantidadeEstoque;
         document.getElementById('dataValidade').value = epi.dataValidade || '';
@@ -163,6 +166,7 @@ document.getElementById('formEpi').addEventListener('submit', async function(e) 
         nome: document.getElementById('nome').value,
         descricao: document.getElementById('descricao').value,
         certificadoCA: document.getElementById('certificadoCA').value,
+        categoria: document.getElementById('categoria').value || null,
         fabricante: document.getElementById('fabricante').value,
         quantidadeEstoque: parseInt(document.getElementById('quantidadeEstoque').value) || 0,
         dataValidade: document.getElementById('dataValidade').value || null,
